@@ -12,7 +12,7 @@ RUN dpkg --add-architecture i386 && \
 COPY scripts/snx_install.sh .
 RUN bash -x snx_install.sh
 
-COPY scripts/expect.sh .
-RUN chmod +x /root/expect.sh
+COPY scripts/cmd.sh .
+RUN chmod +x /root/cmd.sh
 
-CMD ["/root/expect.sh"]
+CMD ["/root/cmd.sh"]

@@ -43,13 +43,10 @@ iptables -A FORWARD -i eth0 -j ACCEPT
 spawn $snx_command
 expect "*?assword:"
 send "$password\r"
-expect {
-    "*Do you accept*" {
-        send "y\r"
-        exp_continue
-    }
-    eof
-}
+expect "*Do you accept*"
+send "y\r"
+expect "SNX - connected."
+interact
 EOF
 
 while pgrep snx &>/dev/null; do sleep 1; done
